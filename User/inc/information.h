@@ -1,0 +1,8 @@
+#ifndef INFORMATION_H
+#define INFORMATION_H
+
+#define BUILD_DATE    (0x08000C00)
+#define BUILD_TIME    (0x08000C0C)
+#define BUILD_VERSION (0x08000C15)
+
+#endif

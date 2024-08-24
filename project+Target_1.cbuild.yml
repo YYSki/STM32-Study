@@ -1,0 +1,179 @@
+build:
+  generated-by: csolution version 2.5.0
+  solution: project.csolution.yml
+  project: project.cproject.yml
+  context: project+Target_1
+  compiler: AC6
+  device: STMicroelectronics::STM32F103C8
+  device-pack: Keil::STM32F1xx_DFP@2.4.1
+  processor:
+    endian: little
+    fpu: off
+    core: Cortex-M3
+  packs:
+    - pack: Keil::STM32F1xx_DFP@2.4.1
+      path: ${CMSIS_PACK_ROOT}/Keil/STM32F1xx_DFP/2.4.1
+  optimize: debug
+  debug: on
+  misc:
+    C:
+      - -std=c99
+      - -fno-rtti
+      - -funsigned-char
+      - -fshort-enums
+      - -fshort-wchar
+      - -ffunction-sections
+      - -Wno-packed
+      - -Wno-missing-variable-declarations
+      - -Wno-missing-prototypes
+      - -Wno-missing-noreturn
+      - -Wno-sign-conversion
+      - -Wno-nonportable-include-path
+      - -Wno-reserved-id-macro
+      - -Wno-unused-macros
+      - -Wno-documentation-unknown-command
+      - -Wno-documentation
+      - -Wno-license-management
+      - -Wno-parentheses-equality
+    CPP:
+      - -xc++
+      - -std=c++11
+      - -fno-rtti
+      - -funsigned-char
+      - -fshort-enums
+      - -fshort-wchar
+      - -ffunction-sections
+      - -Wno-packed
+      - -Wno-missing-variable-declarations
+      - -Wno-missing-prototypes
+      - -Wno-missing-noreturn
+      - -Wno-sign-conversion
+      - -Wno-nonportable-include-path
+      - -Wno-reserved-id-macro
+      - -Wno-unused-macros
+      - -Wno-documentation-unknown-command
+      - -Wno-documentation
+      - -Wno-license-management
+      - -Wno-parentheses-equality
+    Link:
+      - --library_type=microlib
+      - --map
+      - --load_addr_map_info
+      - --xref
+      - --callgraph
+      - --symbols
+      - --info sizes
+      - --info totals
+      - --info unused
+      - --info veneers
+      - --strict
+      - --summary_stderr
+      - --info summarysizes
+  define:
+    - USE_STDPERIPH_DRIVER
+    - __MICROLIB
+    - STM32F10X_MD
+  define-asm:
+    - __MICROLIB
+    - STM32F10X_MD
+  add-path:
+    - Start/inc
+    - Library/inc
+    - User/inc
+    - Bsp/inc
+    - ${CMSIS_PACK_ROOT}/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+  add-path-asm:
+    - ${CMSIS_PACK_ROOT}/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+  output-dirs:
+    intdir: tmp
+    outdir: out/project/Target_1
+    rtedir: RTE
+  output:
+    - type: elf
+      file: project.axf
+  linker:
+    script: project_Target_1.sct
+  groups:
+    - group: Start
+      files:
+        - file: Start/src/core_cm3.c
+          category: sourceC
+        - file: Start/src/system_stm32f10x.c
+          category: sourceC
+        - file: Start/inc/core_cm3.h
+          category: header
+        - file: Start/inc/stm32f10x.h
+          category: header
+        - file: Start/inc/system_stm32f10x.h
+          category: header
+        - file: Start/startup_stm32f10x_md.s
+          category: sourceAsm
+          misc:
+            ASM:
+              - -masm=auto
+    - group: Library
+      files:
+        - file: Library/src/misc.c
+          category: sourceC
+        - file: Library/src/stm32f10x_adc.c
+          category: sourceC
+        - file: Library/src/stm32f10x_bkp.c
+          category: sourceC
+        - file: Library/src/stm32f10x_can.c
+          category: sourceC
+        - file: Library/src/stm32f10x_cec.c
+          category: sourceC
+        - file: Library/src/stm32f10x_crc.c
+          category: sourceC
+        - file: Library/src/stm32f10x_dac.c
+          category: sourceC
+        - file: Library/src/stm32f10x_dbgmcu.c
+          category: sourceC
+        - file: Library/src/stm32f10x_dma.c
+          category: sourceC
+        - file: Library/src/stm32f10x_exti.c
+          category: sourceC
+        - file: Library/src/stm32f10x_flash.c
+          category: sourceC
+        - file: Library/src/stm32f10x_fsmc.c
+          category: sourceC
+        - file: Library/src/stm32f10x_gpio.c
+          category: sourceC
+        - file: Library/src/stm32f10x_i2c.c
+          category: sourceC
+        - file: Library/src/stm32f10x_it.c
+          category: sourceC
+        - file: Library/src/stm32f10x_iwdg.c
+          category: sourceC
+        - file: Library/src/stm32f10x_pwr.c
+          category: sourceC
+        - file: Library/src/stm32f10x_rcc.c
+          category: sourceC
+        - file: Library/src/stm32f10x_rtc.c
+          category: sourceC
+        - file: Library/src/stm32f10x_sdio.c
+          category: sourceC
+        - file: Library/src/stm32f10x_spi.c
+          category: sourceC
+        - file: Library/src/stm32f10x_tim.c
+          category: sourceC
+        - file: Library/src/stm32f10x_usart.c
+          category: sourceC
+        - file: Library/src/stm32f10x_wwdg.c
+          category: sourceC
+    - group: User
+      files:
+        - file: User/scr/main.c
+          category: sourceC
+        - file: User/scr/information.c
+          category: sourceC
+    - group: Bsp
+      files:
+        - file: Bsp/src/bsp_led.c
+          category: sourceC
+        - file: Bsp/src/bsp_key.c
+          category: sourceC
+  licenses:
+    - license: <unknown>
+      packs:
+        - pack: Keil::STM32F1xx_DFP@2.4.1
